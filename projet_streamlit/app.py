@@ -6,7 +6,7 @@ import pandas as pd
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d'eau")
 
-DOSSIER_JSON = r"G:\projet_streamlit\data"
+DOSSIER_JSON = r"c:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
 
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]

@@ -39,7 +39,6 @@ if choix != "-- Aucune sélection --":
     coords = data["geometry"]["coordinates"]
     initial_view = pdk.ViewState(latitude=coords[1], longitude=coords[0], zoom=8)
 else:
-    # Vue centrée par défaut sur les points entre 40° et 50°N
     df_filtre = df_coords[(df_coords["lat"] >= 40) & (df_coords["lat"] <= 50)]
 
     if not df_filtre.empty:
@@ -47,12 +46,11 @@ else:
             latitude=df_filtre["lat"].mean(),
             longitude=df_filtre["lon"].mean(),
             zoom=4
-            )
-        
+        )
     else:
         initial_view = pdk.ViewState(latitude=0, longitude=0, zoom=1)
 
-# Affichage unique de la carte avec tous les points visibles
+# Affichage de la carte
 st.subheader("Carte des stations")
 
 if not df_coords.empty:
@@ -97,11 +95,62 @@ if choix != "-- Aucune sélection --":
             df = df.rename(columns={'orthometric_height_of_water_surface_at_reference_position': 'height'})
             df["datetime"] = pd.to_datetime(df["datetime"], format="%Y/%m/%d %H:%M")
             df = df.sort_values("datetime")
-            st.line_chart(df.set_index("datetime")["height"])
-            
+
+            # Choix du mode de sélection
+            mode_selection = st.selectbox("Mode de sélection :", ["Période personnalisée", "Année entière", "Saison"], key="mode")
+
+            # Définition des bornes disponibles
+            min_date = df["datetime"].min().date()
+            max_date = df["datetime"].max().date()
+            df["year"] = df["datetime"].dt.year
+
+            if mode_selection == "Période personnalisée":
+                start_date, end_date = st.date_input(
+                    "Sélectionnez une période :",
+                    value=(min_date, max_date),
+                    min_value=min_date,
+                    max_value=max_date
+            )
+            elif mode_selection == "Année entière":
+                années = sorted(df["year"].unique())
+                année_choisie = st.selectbox("Choisissez une année :", années)
+                start_date = pd.to_datetime(f"{année_choisie}-01-01").date()
+                end_date = pd.to_datetime(f"{année_choisie}-12-31").date()
+            elif mode_selection == "Saison":
+                saisons = {
+                    "Printemps (21 mars – 20 juin)": ("03-21", "06-20"),
+                    "Été (21 juin – 22 septembre)": ("06-21", "09-22"),
+                    "Automne (23 septembre – 20 décembre)": ("09-23", "12-20"),
+                    "Hiver (21 décembre – 20 mars)": ("12-21", "03-20")
+                }
+                saison_choisie = st.selectbox("Choisissez une saison :", list(saisons.keys()))
+                années = sorted(df["year"].unique())
+                année_choisie = st.selectbox("Choisissez une année :", années, key="annee_saison")
+
+                debut, fin = saisons[saison_choisie]
+                if saison_choisie == "Hiver (21 décembre – 20 mars)":
+                    start_date = pd.to_datetime(f"{année_choisie}-12-21").date()
+                    end_date = pd.to_datetime(f"{année_choisie + 1}-03-20").date()
+                else:
+                    start_date = pd.to_datetime(f"{année_choisie}-{debut}").date()
+                    end_date = pd.to_datetime(f"{année_choisie}-{fin}").date()
+
+            # Filtrage
+            df_filtré = df[(df["datetime"].dt.date >= start_date) & (df["datetime"].dt.date <= end_date)]
+
+            if df_filtré.empty:
+                st.warning("Aucune donnée disponible pour la période sélectionnée.")
+            else:
+                st.line_chart(df_filtré.set_index("datetime")["height"])
         else:
             st.warning("Aucune donnée de mesure trouvée.")
+
+
     with st.expander("Données brutes (table)"):
-        st.dataframe(df[["datetime", "height", "associated_uncertainty", "satellite"]])
+        if 'df_filtré' in locals() and not df_filtré.empty:
+            st.dataframe(df_filtré[["datetime", "height", "associated_uncertainty", "satellite"]])
+        else:
+            st.write("Aucune donnée à afficher.")
+
     with st.expander("Métadonnées complètes"):
         st.json(props)

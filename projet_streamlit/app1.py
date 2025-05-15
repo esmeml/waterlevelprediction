@@ -219,22 +219,59 @@ if os.path.exists(MODELES_PATH):
                 model = None
 
             # Entraînement et prédiction
-            if model:
+            if model is not None:
                 model.fit(X, y)
-                df_modele["prediction"] = model.predict(X)
-
-                # Affichage de la courbe réelle vs prédite
-                st.subheader("Comparaison : données réelles vs prédictions du modèle")
+                
+                # --- Prédictions sur l'historique (pour comparaison) ---
+                y_pred_historique = model.predict(X)
+                df_pred_historique = pd.DataFrame({
+                    "datetime": df_modele["datetime"],
+                    "prediction": y_pred_historique
+                })
+            
+                # --- Prédictions futures ---
+                dernière_date = df_modele["datetime"].max()
+                nb_jours_predire = 365
+                dates_futures = pd.date_range(start=dernière_date + pd.Timedelta(days=1), periods=nb_jours_predire, freq='D')
+                timestamps_futurs = dates_futures.astype(np.int64) // 10**9
+                X_futur = pd.DataFrame({"timestamp": timestamps_futurs})
+                y_pred_futur = model.predict(X_futur)
+            
+                df_futur = pd.DataFrame({
+                    "datetime": dates_futures,
+                    "prediction": y_pred_futur
+                })
+            
+                # --- Affichage graphique ---
                 fig, ax = plt.subplots(figsize=(10, 5))
+            
+                # Observé
                 ax.plot(df_modele["datetime"], df_modele["height"], label="Observé", color="blue")
-                ax.plot(df_modele["datetime"], df_modele["prediction"], label="Prédit", color="red", linestyle="--")
+            
+                # Prédictions passées
+                ax.plot(df_pred_historique["datetime"], df_pred_historique["prediction"], label="Prédiction (historique)", color="red", linestyle="--")
+            
+                # Prédictions futures
+                ax.plot(df_futur["datetime"], df_futur["prediction"], label="Prédiction (future)", color="red", linestyle="--")
+            
+                # Ligne verticale pour séparation
+                ax.axvline(dernière_date, color='gray', linestyle=':', label='Fin des observations')
+            
+                # Légendes et style
                 ax.set_xlabel("Date")
                 ax.set_ylabel("Hauteur d'eau")
                 ax.set_title(f"Modèle : {nom_modele}")
                 ax.legend()
+                ax.grid(True)
+            
                 st.pyplot(fig)
+                
+                
+                
         else:
             st.warning("Aucune donnée filtrée disponible pour générer le graphique.")
+            
+            
     
 else:
     st.warning("Fichier des modèles non trouvé.")

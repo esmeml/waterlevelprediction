@@ -1,0 +1,2104 @@
+{
+    "Adour_Adour__2016-05-27__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": -0.7894,
+        "model_params": {}
+    },
+    "Adour_Adour__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0389,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Adour_Adour__2016-08-07__2025-03-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0769,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Adour_Adour__2016-08-11__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7019,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Adour_Adour__2019-01-02__2025-02-20.json": {
+        "best_model": "RandomForest",
+        "best_score": -4.4818,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Adour_Gave-d-oloron__2016-05-27__2025-03-04.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.073,
+        "model_params": {}
+    },
+    "Adour_Gave-de-pau__2008-12-19__2025-02-22.json": {
+        "best_model": "LinearRegression",
+        "best_score": -0.1139,
+        "model_params": {}
+    },
+    "Adour_Gave-de-pau__2019-01-02__2025-02-20.json": {
+        "best_model": "XGBoost",
+        "best_score": -18.4829,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 100
+        }
+    },
+    "Adour_Gaves-reunis__2019-03-09__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3099,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Approuague_Approuague__2016-04-06__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -3.5325,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Approuague_Approuague__2018-12-18__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7047,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Approuague_Approuague__2019-01-09__2025-02-27.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.9636,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Aude_Aude__2019-03-26__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.9899,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Blavet_Blavet__2021-10-03__2025-02-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3422,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Bombe_Bombe__2016-08-08__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0571,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Bombe_Bombe__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4779,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Charente_Boutonne__2016-08-15__2025-03-13.json": {
+        "best_model": "XGBoost",
+        "best_score": -1.0981,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 100
+        }
+    },
+    "Charente_Charente__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5807,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Charente_Charente__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.526,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Charente_Charente__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6321,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Charente_Charente__2019-01-10__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2071,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2008-07-14__2025-03-15.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.0345,
+        "model_params": {}
+    },
+    "Dordogne_Dordogne__2016-05-27__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.1027,
+        "model_params": {}
+    },
+    "Dordogne_Dordogne__2016-06-26__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5312,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Dordogne_Dordogne__2016-08-10__2025-02-09.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.2093,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0657,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Dordogne_Dordogne__2016-08-15__2025-02-14.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.177,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2018-12-18__2025-02-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1475,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3047,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2019-01-09__2025-02-27.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5446,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Dordogne__2019-03-21__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4378,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Dordogne_Dronne__2019-03-18__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1138,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Isle__2019-03-18__2025-01-18.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2751,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Isle__2021-10-02__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -4.9431,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Dordogne_Vezere__2016-05-30__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5668,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Escaut-schelde_Busnes__2016-08-10__2025-02-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7484,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Escaut-schelde_Schelde__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.113,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Agout__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0911,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Agout__2018-12-18__2025-02-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.1264,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Agout__2019-01-13__2025-01-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.9235,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Ariege__2016-05-03__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -28.0817,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Aveyron__2016-08-18__2024-11-01.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.916,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Aveyron__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0159,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Aveyron__2018-12-18__2025-02-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3262,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Garonne__2016-05-27__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.2268,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Garonne__2016-05-29__2025-03-15.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.3956,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Garonne__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7416,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Garonne__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.5246,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Garonne__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0666,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Garonne__2019-01-06__2025-02-24.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4659,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Garonne__2021-10-03__2025-03-15.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1261,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Lot__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3378,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Lot__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2509,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Lot__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.354,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Lot__2016-08-19__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0949,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Lot__2018-12-22__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -9.6098,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Lot__2019-01-09__2025-02-27.json": {
+        "best_model": "XGBoost",
+        "best_score": -2.1663,
+        "model_params": {
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Tarn__2016-04-06__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0223,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Tarn__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.737,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Tarn__2018-12-22__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3732,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Garonne_Tarn__2021-09-25__2025-01-27.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2205,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Truyere__2016-07-31__2025-02-26.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4234,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Garonne_Truyere__2021-09-25__2025-03-07.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2743,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Herault_Herault__2018-12-26__2025-01-17.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.9618,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Allier__2016-07-26__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6445,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Allier__2018-12-17__2025-03-03.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3885,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Anglin__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.3001,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Arnon__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1171,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Bressure__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4169,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Cher__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4423,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Cher__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1249,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Cher__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7883,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Creuse__2016-05-27__2025-03-04.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.1501,
+        "model_params": {}
+    },
+    "Loire_Creuse__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2684,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Creuse__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6109,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Creuse__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7551,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Creuse__2019-01-05__2025-02-23.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1163,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Creuse__2021-09-26__2024-10-31.json": {
+        "best_model": "XGBoost",
+        "best_score": -22.1523,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Dore__2016-07-26__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3959,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Gartempe__2019-01-05__2025-02-23.json": {
+        "best_model": "XGBoost",
+        "best_score": -0.422,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Huisne__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4795,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Huisne__2021-09-29__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0478,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Indre__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1509,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Indre__2019-03-26__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2497,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2008-07-20__2025-03-11.json": {
+        "best_model": "XGBoost",
+        "best_score": 0.5037,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2016-05-03__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1157,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2016-06-01__2025-03-09.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.2755,
+        "model_params": {}
+    },
+    "Loire_Loire__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0294,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2016-07-30__2025-02-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0731,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2016-07-31__2025-02-26.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3242,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2016-08-02__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4147,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2016-08-04__2025-03-02.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3081,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0606,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6197,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2757,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2018-12-22__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2891,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2018-12-26__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1968,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2018-12-28__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1842,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7656,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2019-01-05__2025-02-23.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.516,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2019-01-06__2025-02-24.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1942,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2019-01-10__2025-01-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.139,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2019-01-10__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2067,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2019-03-18__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0516,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loire__2021-09-25__2025-03-07.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.4987,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loire__2021-09-29__2025-03-11.json": {
+        "best_model": "LinearRegression",
+        "best_score": NaN,
+        "model_params": {}
+    },
+    "Loire_Loir__2008-07-20__2020-03-03.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3043,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Loir__2016-04-06__2025-01-22.json": {
+        "best_model": "XGBoost",
+        "best_score": -0.5611,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2016-07-27__2025-02-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.4148,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2016-08-02__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4016,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2946,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2018-12-18__2024-12-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2104,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2021-09-26__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1371,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Loir__2021-09-29__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5241,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Maine__2016-08-02__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.8267,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Mayenne__2019-01-10__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5989,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Mayenne__2021-09-26__2025-02-27.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.2466,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Sarthe__2016-04-06__2025-01-22.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0596,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Sarthe__2016-08-02__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3663,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Sarthe__2018-12-18__2025-02-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -6.1976,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Sarthe__2021-09-26__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0647,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Sauldre__2016-07-31__2025-02-26.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.0696,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Sevre-nantaise__2020-06-29__2025-02-24.json": {
+        "best_model": "LinearRegression",
+        "best_score": NaN,
+        "model_params": {}
+    },
+    "Loire_Sioule__2016-10-24__2025-03-02.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3177,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Thaurion__2016-08-14__2025-02-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3081,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Vienne__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3635,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Vienne__2016-08-10__2025-02-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.9678,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Vienne__2018-12-18__2025-02-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -4.4795,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Vienne__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.007,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Loire_Vienne__2021-09-22__2025-01-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -22.0626,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Loire_Yevre__2008-07-23__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.4366,
+        "model_params": {}
+    },
+    "Loire_Yevre__2016-08-14__2025-01-17.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2385,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Maas_Meuse__2016-07-26__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0549,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Maas_Meuse__2018-12-17__2025-03-03.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3017,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Mana_Mana__2016-08-10__2025-03-08.json": {
+        "best_model": "XGBoost",
+        "best_score": 0.0315,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 100
+        }
+    },
+    "Mana_Mana__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1579,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Mana_Mana__2021-09-25__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2813,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Maroni_Grand-abounami-lawa__2021-09-26__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -14.9144,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Maroni_Grand-inini__2019-01-01__2025-01-23.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.8779,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Maroni_Litani__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.9232,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Maroni_Maroni__2016-08-11__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1726,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Maroni_Tampok__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.087,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Maroni_Tampok__2019-01-01__2025-01-23.json": {
+        "best_model": "LinearRegression",
+        "best_score": -0.896,
+        "model_params": {}
+    },
+    "Oyapock_Camopi__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0675,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Oyapock_Camopi__2018-12-18__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3547,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Oyapock_Camopi__2021-09-25__2025-02-26.json": {
+        "best_model": "XGBoost",
+        "best_score": -204.7342,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 100
+        }
+    },
+    "Oyapock_Oiapoque-trib01__2016-08-19__2025-02-18.json": {
+        "best_model": "XGBoost",
+        "best_score": -0.5321,
+        "model_params": {
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "n_estimators": 200
+        }
+    },
+    "Oyapock_Oiapoque__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.1753,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Oyapock_Oiapoque__2018-12-18__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0789,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Oyapock_Oiapoque__2019-01-05__2025-02-23.json": {
+        "best_model": "RandomForest",
+        "best_score": -51.1305,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Oyapock_Oyapock__2016-08-14__2025-03-12.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.4338,
+        "model_params": {}
+    },
+    "Rhine_Blies__2018-12-02__2025-01-20.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.9525,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Ill__2018-12-23__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.5882,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Meurthe__2016-08-03__2025-03-01.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2448,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhine_Moselle__2016-08-20__2025-01-23.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2065,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Moselle__2016-08-20__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2963,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Moselle__2018-12-19__2025-03-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3624,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhine_Moselle__2018-12-25__2025-02-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.73,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Moselle__2018-12-25__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2105,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhine_Moselle__2020-06-17__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.6272,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Ain__2016-08-03__2025-02-02.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1675,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Arve__2016-08-07__2025-02-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.1523,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Doubs__2016-08-16__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2579,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Doubs__2016-08-30__2024-10-17.json": {
+        "best_model": "XGBoost",
+        "best_score": 0.0364,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Doubs__2016-09-16__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.2226,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Doubs__2018-12-25__2025-03-11.json": {
+        "best_model": "XGBoost",
+        "best_score": -0.1807,
+        "model_params": {
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Doubs__2019-01-07__2025-02-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.6604,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Doubs__2020-06-21__2025-01-20.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.5681,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Doubs__2021-09-22__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2478,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Durance__2016-08-07__2025-03-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2314,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Gardon__2016-04-17__2024-07-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0726,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Isere__2016-06-04__2025-01-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1724,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Isere__2016-08-07__2025-03-05.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4362,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Isere__2016-08-12__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.5201,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Isere__2016-11-19__2024-11-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1468,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Isere__2019-01-03__2024-12-29.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5043,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Isere__2020-06-30__2025-02-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -6.746,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Larine__2016-08-16__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -37.0029,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Ognon__2016-04-17__2024-11-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3526,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Ognon__2016-08-16__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1302,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Rhone__2008-07-19__2025-02-08.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0219,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2016-06-14__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0607,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Rhone__2016-08-03__2025-03-01.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5199,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2016-08-08__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2045,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Rhone__2016-08-12__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.451,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2016-08-16__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6147,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2018-12-02__2025-01-20.json": {
+        "best_model": "XGBoost",
+        "best_score": -0.5175,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2018-12-25__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4301,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Rhone__2018-12-30__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -3.4793,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Rhone__2019-01-07__2025-02-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2207,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Saone__2008-07-23__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.387,
+        "model_params": {}
+    },
+    "Rhone_Saone__2016-08-12__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.948,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Saone__2016-08-16__2024-11-26.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0393,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Saone__2019-01-03__2025-01-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3662,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Saone__2019-01-03__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3808,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Saone__2019-01-07__2025-02-25.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4024,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Rhone_Seille__2016-08-12__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1905,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Rhone_Seille__2018-12-25__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0532,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Aisne__2016-08-08__2025-02-07.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4263,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Aisne__2016-08-14__2025-01-17.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0805,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Aube__2016-07-26__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.3892,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Aube__2018-12-17__2025-03-03.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.7808,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Aube__2019-03-15__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6423,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Cure__2019-05-28__2025-03-03.json": {
+        "best_model": "RandomForest",
+        "best_score": -6.573,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Epte__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0115,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Eure__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7521,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Eure__2021-09-29__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0575,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Marne__2008-07-13__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.5517,
+        "model_params": {}
+    },
+    "Seine_Marne__2008-07-23__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.4895,
+        "model_params": {}
+    },
+    "Seine_Marne__2016-07-26__2025-02-21.json": {
+        "best_model": "LinearRegression",
+        "best_score": NaN,
+        "model_params": {}
+    },
+    "Seine_Marne__2016-08-08__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4529,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Marne__2018-12-30__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.344,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Marne__2019-01-03__2025-02-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.699,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2016-06-04__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.25,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2016-06-14__2025-03-11.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.4071,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2016-07-31__2025-02-26.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0755,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2016-08-04__2025-03-02.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5492,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2016-08-06__2025-03-04.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.7674,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2016-08-08__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6031,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2016-08-10__2025-03-08.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.2743,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2016-08-14__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2595,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0832,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2018-12-26__2025-03-12.json": {
+        "best_model": "RandomForest",
+        "best_score": -46.092,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2018-12-30__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.881,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Seine__2019-01-03__2025-02-21.json": {
+        "best_model": "LinearRegression",
+        "best_score": NaN,
+        "model_params": {}
+    },
+    "Seine_Seine__2019-03-15__2025-03-10.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0346,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Seine__2021-09-22__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.384,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Serre__2021-09-22__2025-03-14.json": {
+        "best_model": "LinearRegression",
+        "best_score": 0.3935,
+        "model_params": {}
+    },
+    "Seine_Yonne__2016-05-27__2025-03-14.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.1278,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Yonne__2016-08-08__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5177,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Seine_Yonne__2016-08-18__2025-01-21.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0799,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Seine_Yonne__2019-01-09__2025-02-27.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.2911,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Sevre_Sevre__2016-08-15__2025-03-13.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.6187,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Sinnamary_Brazil-05-basin-trib-01__2019-01-10__2025-02-28.json": {
+        "best_model": "RandomForest",
+        "best_score": -1.0473,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 100
+        }
+    },
+    "Sinnamary_Sinnamary__2019-01-10__2025-02-28.json": {
+        "best_model": "XGBoost",
+        "best_score": -9.3026,
+        "model_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 100
+        }
+    },
+    "Somme-canalisee_Somme-canalisee__2019-01-01__2025-02-19.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0282,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Somme-canalisee_Somme-canalisee__2021-09-29__2025-01-21.json": {
+        "best_model": "LinearRegression",
+        "best_score": -0.1441,
+        "model_params": {}
+    },
+    "Vilaine_Isac__2016-08-11__2025-03-09.json": {
+        "best_model": "RandomForest",
+        "best_score": -2.0778,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        }
+    },
+    "Vilaine_Isac__2018-12-20__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.0844,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Vilaine_Oust__2020-06-25__2025-02-20.json": {
+        "best_model": "RandomForest",
+        "best_score": -0.5331,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    },
+    "Vilaine_Oust__2021-09-26__2025-02-26.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0769,
+        "model_params": {
+            "max_depth": 10,
+            "min_samples_split": 5,
+            "n_estimators": 100
+        }
+    },
+    "Vilaine_Vilaine__2018-12-20__2025-03-06.json": {
+        "best_model": "RandomForest",
+        "best_score": 0.0125,
+        "model_params": {
+            "max_depth": 5,
+            "min_samples_split": 2,
+            "n_estimators": 200
+        }
+    }
+}

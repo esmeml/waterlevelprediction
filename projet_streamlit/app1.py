@@ -1,16 +1,30 @@
 import streamlit as st
 import os
 import json
-import pandas as pd
 import pydeck as pdk
+import numpy as np
+import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
-import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
-import numpy as np
+
 from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBRegressor
+
+from statsmodels.graphics.tsaplots import plot_acf
+from statsmodels.graphics.tsaplots import plot_pacf
+
+from sklearn.model_selection import TimeSeriesSplit ,  GridSearchCV
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+
+from xgboost import XGBRegressor
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 
 
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
@@ -167,6 +181,7 @@ if choix != "-- Aucune sélection --":
         st.json(props)
 
 
+
 # Charger les résultats de modèle
 MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
 if os.path.exists(MODELES_PATH):
@@ -176,9 +191,8 @@ if os.path.exists(MODELES_PATH):
     # Chercher un modèle qui correspond au cours d’eau sélectionné
     cle_modele_trouvee = None
     for key in resultats_modeles:
-        # Exemple de clé : "Adour_Adour__2016-08-06__2025-03-04.json"
-        nom_riviere = key.split("__")[0]  # "Adour_Adour"
-        noms_possibles = nom_riviere.split("_")  # ["Adour", "Adour"]
+        nom_riviere = key.split("__")[0]
+        noms_possibles = nom_riviere.split("_")
         if choix in noms_possibles:
             cle_modele_trouvee = key
             break
@@ -197,82 +211,91 @@ if os.path.exists(MODELES_PATH):
         st.markdown(f"**Meilleur score :** {score}")
         st.subheader("Comparaison des valeurs réelles et prédites")
 
-        # Recréer le DataFrame filtré sur lequel on va entraîner/prédire
         if 'df_filtré' in locals() and not df_filtré.empty:
-            # Préparation des données
+            lags = 5
             df_modele = df_filtré.copy()
-            df_modele = df_modele.dropna(subset=["height"])  # Supprimer les NaNs
-            df_modele["timestamp"] = df_modele["datetime"].astype(np.int64) // 10**9  # Secondes depuis epoch
+            for i in range(1, lags + 1):
+                df_modele[f"lag{i}"] = df_modele["height"].shift(i)
+            df_modele.dropna(inplace=True)
 
-            X = df_modele[["timestamp"]]
-            y = df_modele["height"]
+            X = df_modele[[f"lag{i}" for i in range(1, lags + 1)]].copy()
+            y = df_modele["height"].copy()
+            X.reset_index(drop=True, inplace=True)
+            y.reset_index(drop=True, inplace=True)
 
-            # Création du modèle selon le nom
-            if nom_modele == "LinearRegression":
-                model = LinearRegression(**hyperparams)
-            elif nom_modele == "RandomForest":
-                model = RandomForestRegressor(**hyperparams)
-            elif nom_modele == "XGBoost":
-                model = XGBRegressor(**hyperparams)
+            tscv = TimeSeriesSplit(n_splits=5)
+            for train_index, test_index in tscv.split(X):
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y.iloc[train_index], y.iloc[test_index]
+
+            # Sélection dynamique du modèle
+            default_model = nom_modele
+            mode_selection1 = st.selectbox(
+                "Choisissez un modèle",
+                ["LinearRegression", "RandomForest", "XGBoost"],
+                index=["LinearRegression", "RandomForest", "XGBoost"].index(default_model)
+            )
+
+            # Création du modèle sélectionné
+            if mode_selection1 == "LinearRegression":
+                model = LinearRegression()
+            elif mode_selection1 == "RandomForest":
+                model = RandomForestRegressor(**hyperparams if nom_modele == "RandomForest" else {})
+            elif mode_selection1 == "XGBoost":
+                model = XGBRegressor(**hyperparams if nom_modele == "XGBoost" else {})
             else:
-                st.error(f"Modèle non supporté : {nom_modele}")
+                st.error(f"Modèle non supporté : {mode_selection1}")
                 model = None
 
-            # Entraînement et prédiction
             if model is not None:
-                model.fit(X, y)
-                
-                # --- Prédictions sur l'historique (pour comparaison) ---
-                y_pred_historique = model.predict(X)
+                model.fit(X_train, y_train)
+                y_pred_historique = model.predict(X_test)
+
+                # Dates correspondantes à y_test
+                dates_test = df_modele.iloc[y_test.index]["datetime"]
+
                 df_pred_historique = pd.DataFrame({
-                    "datetime": df_modele["datetime"],
+                    "datetime": dates_test.values,
                     "prediction": y_pred_historique
                 })
-            
-                # --- Prédictions futures ---
-                dernière_date = df_modele["datetime"].max()
-                nb_jours_predire = 365
-                dates_futures = pd.date_range(start=dernière_date + pd.Timedelta(days=1), periods=nb_jours_predire, freq='D')
-                timestamps_futurs = dates_futures.astype(np.int64) // 10**9
-                X_futur = pd.DataFrame({"timestamp": timestamps_futurs})
-                y_pred_futur = model.predict(X_futur)
-            
+
+                # Prédictions futures par prolongation des lags
+                dernier_lag = X.iloc[-1].tolist()
+                future_preds = []
+                future_dates = []
+                current_lag = dernier_lag.copy()
+                last_date = df_modele["datetime"].max()
+
+                for i in range(365):
+                    input_array = np.array(current_lag).reshape(1, -1)
+                    next_pred = model.predict(input_array)[0]
+                    future_preds.append(next_pred)
+                    next_date = last_date + pd.Timedelta(days=i+1)
+                    future_dates.append(next_date)
+
+                    # Mettre à jour les lags pour la prochaine prédiction
+                    current_lag = current_lag[1:] + [next_pred]
+
                 df_futur = pd.DataFrame({
-                    "datetime": dates_futures,
-                    "prediction": y_pred_futur
+                    "datetime": future_dates,
+                    "prediction": future_preds
                 })
-            
-                # --- Affichage graphique ---
-                fig, ax = plt.subplots(figsize=(10, 5))
-            
-                # Observé
-                ax.plot(df_modele["datetime"], df_modele["height"], label="Observé", color="blue")
-            
-                # Prédictions passées
-                ax.plot(df_pred_historique["datetime"], df_pred_historique["prediction"], label="Prédiction (historique)", color="red", linestyle="--")
-            
-                # Prédictions futures
-                ax.plot(df_futur["datetime"], df_futur["prediction"], label="Prédiction (future)", color="red", linestyle="--")
-            
-                # Ligne verticale pour séparation
-                ax.axvline(dernière_date, color='gray', linestyle=':', label='Fin des observations')
-            
-                # Légendes et style
+
+                # Affichage graphique
+                fig, ax = plt.subplots(figsize=(12, 6))
+                ax.plot(df_modele["datetime"], df_modele["height"], label='Valeurs réelles', color='blue')
+                ax.plot(df_pred_historique["datetime"], df_pred_historique["prediction"], label='Valeurs prédites (test)', color='orange')
+                ax.plot(df_futur["datetime"], df_futur["prediction"], label='Prédictions futures', linestyle='--', color='green')
+
                 ax.set_xlabel("Date")
                 ax.set_ylabel("Hauteur d'eau")
-                ax.set_title(f"Modèle : {nom_modele}")
+                ax.set_title(f"Prédictions avec modèle : {mode_selection1}")
                 ax.legend()
                 ax.grid(True)
-            
+
                 st.pyplot(fig)
-                
-                
-                
         else:
             st.warning("Aucune donnée filtrée disponible pour générer le graphique.")
-            
-            
-    
 else:
     st.warning("Fichier des modèles non trouvé.")
 

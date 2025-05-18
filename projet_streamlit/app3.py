@@ -300,19 +300,14 @@ if os.path.exists(MODELES_PATH):
             # Mettre à jour les lags pour la prochaine prédiction
                     current_lag = current_lag[1:] + [next_pred]
 
-                df_futur = pd.DataFrame({
-                    "datetime": future_dates,
-                    "prediction": future_preds
-                    })
+                
 
         # Affichage graphique
                 fig, ax = plt.subplots(figsize=(12, 6))
                 ax.plot(df_modele["datetime"], df_modele["height"], label='Valeurs réelles', color='blue')
                 ax.plot(df_pred_historique["datetime"], df_pred_historique["prediction"], label='Valeurs prédites (test)', color='orange')
-                ax.plot(df_futur["datetime"], df_futur["prediction"], label='Prédictions futures', linestyle='--', color='green')
-
-                is_best = "✨" if mode_selection1 == best_model_name_by_r2 else ""
-                ax.set_title(f"Prédictions avec modèle : {mode_selection1} {is_best}")
+                
+                ax.set_title(f"Prédictions avec modèle : {mode_selection1}")
                 ax.set_xlabel("Date")
                 ax.set_ylabel("Hauteur d'eau")
                 ax.legend()

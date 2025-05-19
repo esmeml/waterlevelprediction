@@ -1,11 +1,34 @@
 import streamlit as st
 import os
 import json
-import pandas as pd
 import pydeck as pdk
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+
+from sklearn.preprocessing import LabelEncoder
+from xgboost import XGBRegressor
+
+from statsmodels.graphics.tsaplots import plot_acf
+from statsmodels.graphics.tsaplots import plot_pacf
+
+from sklearn.model_selection import TimeSeriesSplit ,  GridSearchCV
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+
+from xgboost import XGBRegressor
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+
 
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
-st.title("Information sur les cours d'eau")
+st.title("Information sur les cours d’eau")
 
 DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
 
@@ -35,10 +58,12 @@ choix = st.selectbox("Sélectionnez un cours d’eau :", ["-- Aucune sélection 
 
 # Déterminer la vue initiale pour la carte
 if choix != "-- Aucune sélection --":
+    # Récupérer les données de la station sélectionnée
     data = stations[choix]
-    coords = data["geometry"]["coordinates"]
-    initial_view = pdk.ViewState(latitude=coords[1], longitude=coords[0], zoom=8)
+    coords = data["geometry"]["coordinates"]  # Long, Lat
+    initial_view = pdk.ViewState(latitude=coords[1], longitude=coords[0], zoom=10)  # Zoom ajusté à 10
 else:
+    # Si aucune station n'est sélectionnée, centrer sur un point par défaut
     df_filtre = df_coords[(df_coords["lat"] >= 40) & (df_coords["lat"] <= 50)]
 
     if not df_filtre.empty:
@@ -110,7 +135,7 @@ if choix != "-- Aucune sélection --":
                     value=(min_date, max_date),
                     min_value=min_date,
                     max_value=max_date
-            )
+                )
             elif mode_selection == "Année entière":
                 années = sorted(df["year"].unique())
                 année_choisie = st.selectbox("Choisissez une année :", années)
@@ -154,3 +179,124 @@ if choix != "-- Aucune sélection --":
 
     with st.expander("Métadonnées complètes"):
         st.json(props)
+
+
+
+# Charger les résultats de modèle
+MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
+if os.path.exists(MODELES_PATH):
+    with open(MODELES_PATH, "r", encoding="utf-8") as f:
+        resultats_modeles = json.load(f)
+
+    # Chercher un modèle qui correspond au cours d’eau sélectionné
+    cle_modele_trouvee = None
+    for key in resultats_modeles:
+        nom_riviere = key.split("__")[0]
+        noms_possibles = nom_riviere.split("_")
+        if choix in noms_possibles:
+            cle_modele_trouvee = key
+            break
+
+    if cle_modele_trouvee:
+        modele_info = resultats_modeles[cle_modele_trouvee]
+        st.subheader("Meilleur modèle prédictif")
+
+        nom_modele = modele_info["best_model"]
+        hyperparams = modele_info["model_params"]
+        score = modele_info["best_score"]
+
+        st.markdown(f"**Modèle :** `{nom_modele}`")
+        st.markdown("**Meilleurs hyperparamètres :**")
+        st.json(hyperparams)
+        st.markdown(f"**Meilleur score :** {score}")
+        st.subheader("Comparaison des valeurs réelles et prédites")
+
+        if 'df_filtré' in locals() and not df_filtré.empty:
+            lags = 5
+            df_modele = df_filtré.copy()
+            for i in range(1, lags + 1):
+                df_modele[f"lag{i}"] = df_modele["height"].shift(i)
+            df_modele.dropna(inplace=True)
+
+            X = df_modele[[f"lag{i}" for i in range(1, lags + 1)]].copy()
+            y = df_modele["height"].copy()
+            X.reset_index(drop=True, inplace=True)
+            y.reset_index(drop=True, inplace=True)
+
+            tscv = TimeSeriesSplit(n_splits=5)
+            for train_index, test_index in tscv.split(X):
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y.iloc[train_index], y.iloc[test_index]
+
+            # Sélection dynamique du modèle
+            default_model = nom_modele
+            mode_selection1 = st.selectbox(
+                "Choisissez un modèle",
+                ["LinearRegression", "RandomForest", "XGBoost"],
+                index=["LinearRegression", "RandomForest", "XGBoost"].index(default_model)
+            )
+
+            # Création du modèle sélectionné
+            if mode_selection1 == "LinearRegression":
+                model = LinearRegression()
+            elif mode_selection1 == "RandomForest":
+                model = RandomForestRegressor(**hyperparams if nom_modele == "RandomForest" else {})
+            elif mode_selection1 == "XGBoost":
+                model = XGBRegressor(**hyperparams if nom_modele == "XGBoost" else {})
+            else:
+                st.error(f"Modèle non supporté : {mode_selection1}")
+                model = None
+
+            if model is not None:
+                model.fit(X_train, y_train)
+                y_pred_historique = model.predict(X_test)
+
+                # Dates correspondantes à y_test
+                dates_test = df_modele.iloc[y_test.index]["datetime"]
+
+                df_pred_historique = pd.DataFrame({
+                    "datetime": dates_test.values,
+                    "prediction": y_pred_historique
+                })
+
+                # Prédictions futures par prolongation des lags
+                dernier_lag = X.iloc[-1].tolist()
+                future_preds = []
+                future_dates = []
+                current_lag = dernier_lag.copy()
+                last_date = df_modele["datetime"].max()
+
+                for i in range(365):
+                    input_array = np.array(current_lag).reshape(1, -1)
+                    next_pred = model.predict(input_array)[0]
+                    future_preds.append(next_pred)
+                    next_date = last_date + pd.Timedelta(days=i+1)
+                    future_dates.append(next_date)
+
+                    # Mettre à jour les lags pour la prochaine prédiction
+                    current_lag = current_lag[1:] + [next_pred]
+
+                df_futur = pd.DataFrame({
+                    "datetime": future_dates,
+                    "prediction": future_preds
+                })
+
+                # Affichage graphique
+                fig, ax = plt.subplots(figsize=(12, 6))
+                ax.plot(df_modele["datetime"], df_modele["height"], label='Valeurs réelles', color='blue')
+                ax.plot(df_pred_historique["datetime"], df_pred_historique["prediction"], label='Valeurs prédites (test)', color='orange')
+                ax.plot(df_futur["datetime"], df_futur["prediction"], label='Prédictions futures', linestyle='--', color='green')
+
+                ax.set_xlabel("Date")
+                ax.set_ylabel("Hauteur d'eau")
+                ax.set_title(f"Prédictions avec modèle : {mode_selection1}")
+                ax.legend()
+                ax.grid(True)
+
+                st.pyplot(fig)
+        else:
+            st.warning("Aucune donnée filtrée disponible pour générer le graphique.")
+else:
+    st.warning("Fichier des modèles non trouvé.")
+
+

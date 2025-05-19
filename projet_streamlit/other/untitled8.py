@@ -3,9 +3,10 @@ import os
 import json
 import pandas as pd
 import pydeck as pdk
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
-st.title("Information sur les cours d'eau")
+st.title("Information sur les cours d’eau")
 
 DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
 
@@ -35,10 +36,12 @@ choix = st.selectbox("Sélectionnez un cours d’eau :", ["-- Aucune sélection 
 
 # Déterminer la vue initiale pour la carte
 if choix != "-- Aucune sélection --":
+    # Récupérer les données de la station sélectionnée
     data = stations[choix]
-    coords = data["geometry"]["coordinates"]
-    initial_view = pdk.ViewState(latitude=coords[1], longitude=coords[0], zoom=8)
+    coords = data["geometry"]["coordinates"]  # Long, Lat
+    initial_view = pdk.ViewState(latitude=coords[1], longitude=coords[0], zoom=10)  # Zoom ajusté à 10
 else:
+    # Si aucune station n'est sélectionnée, centrer sur un point par défaut
     df_filtre = df_coords[(df_coords["lat"] >= 40) & (df_coords["lat"] <= 50)]
 
     if not df_filtre.empty:
@@ -110,7 +113,7 @@ if choix != "-- Aucune sélection --":
                     value=(min_date, max_date),
                     min_value=min_date,
                     max_value=max_date
-            )
+                )
             elif mode_selection == "Année entière":
                 années = sorted(df["year"].unique())
                 année_choisie = st.selectbox("Choisissez une année :", années)
@@ -154,3 +157,37 @@ if choix != "-- Aucune sélection --":
 
     with st.expander("Métadonnées complètes"):
         st.json(props)
+
+
+# Charger les résultats de modèle
+MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
+if os.path.exists(MODELES_PATH):
+    with open(MODELES_PATH, "r", encoding="utf-8") as f:
+        resultats_modeles = json.load(f)
+
+    # Chercher un modèle qui correspond au cours d’eau sélectionné
+    cle_modele_trouvee = None
+    for key in resultats_modeles:
+        # Exemple de clé : "Adour_Adour__2016-08-06__2025-03-04.json"
+        nom_riviere = key.split("__")[0]  # "Adour_Adour"
+        noms_possibles = nom_riviere.split("_")  # ["Adour", "Adour"]
+        if choix in noms_possibles:
+            cle_modele_trouvee = key
+            break
+
+    if cle_modele_trouvee:
+        modele_info = resultats_modeles[cle_modele_trouvee]
+        st.subheader("Meilleur modèle prédictif")
+
+        nom_modele = modele_info["best_model"]
+        hyperparams = modele_info["model_params"]
+        score = modele_info["best_score"]
+
+        st.markdown(f"**Modèle :** `{nom_modele}`")
+        st.markdown("**Meilleurs hyperparamètres :**")
+        st.json(hyperparams)
+        st.markdown(f"**Meilleur score :** {score}")
+    else:
+        st.info("Aucun modèle disponible pour ce cours d’eau.")
+else:
+    st.warning("Fichier des modèles non trouvé.")

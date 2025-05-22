@@ -26,8 +26,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d’eau")
 
-DOSSIER_JSON = r"C:\Users\thiba\Git\projet_water\waterlevelprediction\projet_streamlit\data"
-
+#DOSSIER_JSON = r"C:\Users\thiba\Git\projet_water\waterlevelprediction\projet_streamlit\data"
+DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]
 
@@ -180,6 +180,7 @@ if choix != "-- Aucune sélection --":
 
 # Charger les résultats de modèle
 MODELES_PATH = r"C:\Users\thiba\Git\projet_water\waterlevelprediction\projet_streamlit\resultats_modeles.json"
+
 if os.path.exists(MODELES_PATH):
     with open(MODELES_PATH, "r", encoding="utf-8") as f:
         resultats_modeles = json.load(f)

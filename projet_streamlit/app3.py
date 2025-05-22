@@ -26,7 +26,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d’eau")
 
-DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
+DOSSIER_JSON = r"C:\Users\thiba\Git\projet_water\waterlevelprediction\projet_streamlit\data"
 
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]
@@ -179,7 +179,7 @@ if choix != "-- Aucune sélection --":
 
 
 # Charger les résultats de modèle
-MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
+MODELES_PATH = r"C:\Users\thiba\Git\projet_water\waterlevelprediction\projet_streamlit\resultats_modeles.json"
 if os.path.exists(MODELES_PATH):
     with open(MODELES_PATH, "r", encoding="utf-8") as f:
         resultats_modeles = json.load(f)
@@ -213,6 +213,14 @@ if os.path.exists(MODELES_PATH):
             for i in range(1, lags + 1):
                 df_modele[f"lag{i}"] = df_modele["height"].shift(i)
             df_modele.dropna(inplace=True)
+            # 🔔 Vérification du nombre de données par an
+            nb_mesures_par_annee = df_modele["datetime"].dt.year.value_counts()
+            annees_insuffisantes = nb_mesures_par_annee[nb_mesures_par_annee < 12]
+            if not annees_insuffisantes.empty:
+                st.warning(
+                    f"⚠️ Moins de 12 mesures pour les années suivantes : {', '.join(map(str, annees_insuffisantes.index))}. "
+                    "Les modèles peuvent être peu fiables."
+                )
 
             X = df_modele[[f"lag{i}" for i in range(1, lags + 1)]].copy()
             y = df_modele["height"].copy()

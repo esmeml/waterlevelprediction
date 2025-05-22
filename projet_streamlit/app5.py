@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import VotingRegressor
 
 from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBRegressor
@@ -103,90 +104,79 @@ if choix != "-- Aucune sélection --":
     props = data["properties"]
     mesures = data.get("data", [])
 
-    col1, col2 = st.columns([1, 2])
+    
+    st.subheader("Niveaux d’eau observés")
+    if mesures:
+        df = pd.DataFrame(mesures)
+        df = df.rename(columns={'orthometric_height_of_water_surface_at_reference_position': 'height'})
+        df["datetime"] = pd.to_datetime(df["datetime"], format="%Y/%m/%d %H:%M")
+        df = df.sort_values("datetime")
 
-    with col1:
-        st.subheader("Meilleurs hyperparamètres")
-        st.markdown(f"**Bassin** : {props.get('basin', 'N/A')}")
-        st.markdown(f"**Pays** : {props.get('country', 'N/A')}")
-        st.markdown(f"**Institution** : {props.get('institution', 'N/A')}")
-        st.markdown(f"**Source** : {props.get('source', 'N/A')}")
-        st.markdown(f"**Plateforme satellite** : {props.get('platform', 'N/A')}")
-        st.markdown(f"**Statut** : {props.get('status', 'N/A')}")
+        # Choix du mode de sélection
+        mode_selection = st.selectbox("Mode de sélection :", ["Période personnalisée", "Année entière", "Saison"], key="mode")
 
-    with col2:
-        st.subheader("Niveaux d’eau observés")
-        if mesures:
-            df = pd.DataFrame(mesures)
-            df = df.rename(columns={'orthometric_height_of_water_surface_at_reference_position': 'height'})
-            df["datetime"] = pd.to_datetime(df["datetime"], format="%Y/%m/%d %H:%M")
-            df = df.sort_values("datetime")
+        # Définition des bornes disponibles
+        min_date = df["datetime"].min().date()
+        max_date = df["datetime"].max().date()
+        df["year"] = df["datetime"].dt.year
 
-            # Choix du mode de sélection
-            mode_selection = st.selectbox("Mode de sélection :", ["Période personnalisée", "Année entière", "Saison"], key="mode")
+        if mode_selection == "Période personnalisée":
+            start_date, end_date = st.date_input(
+                "Sélectionnez une période :",
+                value=(min_date, max_date),
+                min_value=min_date,
+                max_value=max_date
+            )
+        elif mode_selection == "Année entière":
+            années = sorted(df["year"].unique())
+            année_choisie = st.selectbox("Choisissez une année :", années)
+            start_date = pd.to_datetime(f"{année_choisie}-01-01").date()
+            end_date = pd.to_datetime(f"{année_choisie}-12-31").date()
+        elif mode_selection == "Saison":
+            saisons = {
+                "Printemps (21 mars – 20 juin)": ("03-21", "06-20"),
+                "Été (21 juin – 22 septembre)": ("06-21", "09-22"),
+                "Automne (23 septembre – 20 décembre)": ("09-23", "12-20"),
+                "Hiver (21 décembre – 20 mars)": ("12-21", "03-20")
+            }
+            saison_choisie = st.selectbox("Choisissez une saison :", list(saisons.keys()))
+            années = sorted(df["year"].unique())
+            année_choisie = st.selectbox("Choisissez une année :", années, key="annee_saison")
 
-            # Définition des bornes disponibles
-            min_date = df["datetime"].min().date()
-            max_date = df["datetime"].max().date()
-            df["year"] = df["datetime"].dt.year
-
-            if mode_selection == "Période personnalisée":
-                start_date, end_date = st.date_input(
-                    "Sélectionnez une période :",
-                    value=(min_date, max_date),
-                    min_value=min_date,
-                    max_value=max_date
-                )
-            elif mode_selection == "Année entière":
-                années = sorted(df["year"].unique())
-                année_choisie = st.selectbox("Choisissez une année :", années)
-                start_date = pd.to_datetime(f"{année_choisie}-01-01").date()
-                end_date = pd.to_datetime(f"{année_choisie}-12-31").date()
-            elif mode_selection == "Saison":
-                saisons = {
-                    "Printemps (21 mars – 20 juin)": ("03-21", "06-20"),
-                    "Été (21 juin – 22 septembre)": ("06-21", "09-22"),
-                    "Automne (23 septembre – 20 décembre)": ("09-23", "12-20"),
-                    "Hiver (21 décembre – 20 mars)": ("12-21", "03-20")
-                }
-                saison_choisie = st.selectbox("Choisissez une saison :", list(saisons.keys()))
-                années = sorted(df["year"].unique())
-                année_choisie = st.selectbox("Choisissez une année :", années, key="annee_saison")
-
-                debut, fin = saisons[saison_choisie]
-                if saison_choisie == "Hiver (21 décembre – 20 mars)":
-                    start_date = pd.to_datetime(f"{année_choisie}-12-21").date()
-                    end_date = pd.to_datetime(f"{année_choisie + 1}-03-20").date()
-                else:
-                    start_date = pd.to_datetime(f"{année_choisie}-{debut}").date()
-                    end_date = pd.to_datetime(f"{année_choisie}-{fin}").date()
-
-            # Filtrage
-            df_filtré = df[(df["datetime"].dt.date >= start_date) & (df["datetime"].dt.date <= end_date)]
-
-            if df_filtré.empty:
-                st.warning("Aucune donnée disponible pour la période sélectionnée.")
+            debut, fin = saisons[saison_choisie]
+            if saison_choisie == "Hiver (21 décembre – 20 mars)":
+                start_date = pd.to_datetime(f"{année_choisie}-12-21").date()
+                end_date = pd.to_datetime(f"{année_choisie + 1}-03-20").date()
             else:
-                import altair as alt
+                start_date = pd.to_datetime(f"{année_choisie}-{debut}").date()
+                end_date = pd.to_datetime(f"{année_choisie}-{fin}").date()
 
-                # Calcul de l'intervalle dynamique pour l'axe Y
-                y_min, y_max = df_filtré["height"].min(), df_filtré["height"].max()
-                marge = (y_max - y_min) * 0.1
-                
-                # Graphique Altair
-                chart = alt.Chart(df_filtré).mark_line(color='steelblue').encode(
-                    x=alt.X("datetime:T", title="Date"),
-                    y=alt.Y("height:Q", title="Hauteur d’eau", scale=alt.Scale(domain=[y_min - marge, y_max + marge])),
-                    tooltip=["datetime:T", "height:Q"]
-                ).properties(
-                    width=700,
-                    height=300,
-                    title="Hauteur d’eau observée"
-                ).interactive()
-                
-                st.altair_chart(chart, use_container_width=True)
+        # Filtrage
+        df_filtré = df[(df["datetime"].dt.date >= start_date) & (df["datetime"].dt.date <= end_date)]
+
+        if df_filtré.empty:
+            st.warning("Aucune donnée disponible pour la période sélectionnée.")
         else:
-            st.warning("Aucune donnée de mesure trouvée.")
+            import altair as alt
+
+            # Calcul de l'intervalle dynamique pour l'axe Y
+            y_min, y_max = df_filtré["height"].min(), df_filtré["height"].max()
+            marge = (y_max - y_min) * 0.1
+            
+            # Graphique Altair
+            chart = alt.Chart(df_filtré).mark_line(color='steelblue').encode(
+                x=alt.X("datetime:T", title="Date"),
+                y=alt.Y("height:Q", title="Hauteur d’eau", scale=alt.Scale(domain=[y_min - marge, y_max + marge])),
+                tooltip=["datetime:T", "height:Q"]
+            ).properties(
+                width=700,
+                height=300,
+                title="Hauteur d’eau observée"
+            ).interactive()
+            
+            st.altair_chart(chart, use_container_width=True)
+    else:
+        st.warning("Aucune donnée de mesure trouvée.")
 
 
     with st.expander("Données brutes (table)"):
@@ -194,7 +184,7 @@ if choix != "-- Aucune sélection --":
             st.dataframe(df_filtré[["datetime", "height", "associated_uncertainty", "satellite"]])
         else:
             st.write("Aucune donnée à afficher.")
-
+    
     with st.expander("Métadonnées complètes"):
         st.json(props)
 
@@ -300,6 +290,71 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
         metrics["SARIMA"] = compute_metrics(y[13:], y_pred_sarima, "SARIMA")
 
     
+    # Séparation manuelle train/test
+    train_size = int(len(X) * 0.8)
+    X_train, X_test = X.iloc[:train_size], X.iloc[train_size:]
+    y_train, y_test = y.iloc[:train_size], y.iloc[train_size:]
+    
+    def compute_metrics(model, X_train, y_train, X_test, y_test):
+        y_pred_train = model.predict(X_train)
+        y_pred_test = model.predict(X_test)
+    
+        return {
+            "R² Train": r2_score(y_train, y_pred_train),
+            "R² Test": r2_score(y_test, y_pred_test),
+            "MSE": mean_squared_error(y_test, y_pred_test),
+            "RMSE": np.sqrt(mean_squared_error(y_test, y_pred_test)),
+            "MAE": mean_absolute_error(y_test, y_pred_test),
+            "MAPE": mean_absolute_percentage_error(y_test, y_pred_test)
+        }
+    
+    # Recalcul des métriques avec la séparation train/test
+    metrics = {}
+    metrics["LinearRegression"] = compute_metrics(lr, X_train, y_train, X_test, y_test)
+    metrics["RandomForest"] = compute_metrics(grid_rf.best_estimator_, X_train, y_train, X_test, y_test)
+    metrics["XGBoost"] = compute_metrics(grid_xgb.best_estimator_, X_train, y_train, X_test, y_test)
+    
+    # VotingRegressor
+    voting = VotingRegressor(estimators=[
+        ('lr', lr),
+        ('rf', grid_rf.best_estimator_),
+        ('xgb', grid_xgb.best_estimator_),
+    ])
+    voting.fit(X_train, y_train)
+    
+    
+    # ARIMA / SARIMA (pas de split train/test ici)
+    if not np.isnan(y_pred_arima).all():
+        metrics["ARIMA"] = {
+            "R² Train": "—", "R² Test": r2_score(y[1:], y_pred_arima),
+            "MSE": mean_squared_error(y[1:], y_pred_arima),
+            "RMSE": np.sqrt(mean_squared_error(y[1:], y_pred_arima)),
+            "MAE": mean_absolute_error(y[1:], y_pred_arima),
+            "MAPE": mean_absolute_percentage_error(y[1:], y_pred_arima),
+        }
+    
+    if not np.isnan(y_pred_sarima).all():
+        metrics["SARIMA"] = {
+            "R² Train": "—", "R² Test": r2_score(y[13:], y_pred_sarima),
+            "MSE": mean_squared_error(y[13:], y_pred_sarima),
+            "RMSE": np.sqrt(mean_squared_error(y[13:], y_pred_sarima)),
+            "MAE": mean_absolute_error(y[13:], y_pred_sarima),
+            "MAPE": mean_absolute_percentage_error(y[13:], y_pred_sarima),
+        }
+    
+    # Déterminer le meilleur modèle
+    metrics_clean = {k: v for k, v in metrics.items() if k != "VotingRegressor"}
+    meilleur_modele = max(metrics_clean.items(), key=lambda x: x[1]["R² Test"] if isinstance(x[1]["R² Test"], (int, float)) else -np.inf)
+    nom_meilleur_modele = meilleur_modele[0]
+    score_meilleur = meilleur_modele[1]["R² Test"]
+
+
+    # Arrondir R² Train à 4 chiffres significatifs
+    for model in metrics:
+        if isinstance(metrics[model]["R² Train"], (float, int)):
+            metrics[model]["R² Train"] = float("{:.4g}".format(metrics[model]["R² Train"]))
+
+
 
     col1, col2, col3 = st.columns([2, 1, 1])
 
@@ -307,7 +362,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
         # Tableau des métriques
         st.subheader("Tableau des Métriques")
         df_metrics = pd.DataFrame(metrics).T
-        df_metrics = df_metrics[["R²", "MSE", "RMSE", "MAE", "MAPE"]]
+        df_metrics = df_metrics[["R² Train", "R² Test", "MSE", "RMSE", "MAE", "MAPE"]]
         df_metrics = df_metrics.round(3)
         st.dataframe(df_metrics, use_container_width=True)
     
@@ -317,6 +372,10 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             params_rf = grid_rf.best_params_
             df_rf_params = pd.DataFrame(params_rf.items(), columns=["Paramètre", "Valeur"])
             st.table(df_rf_params)
+            
+            # Meilleur modèle sélectionné
+            st.markdown("Meilleur modèle sélectionné")
+            st.markdown(f"**{nom_meilleur_modele}** (R² Test = {score_meilleur:.3f})")
         else:
             st.write("Aucun paramètre trouvé pour RandomForest.")
     
@@ -326,13 +385,22 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             params_xgb = grid_xgb.best_params_
             df_xgb_params = pd.DataFrame(params_xgb.items(), columns=["Paramètre", "Valeur"])
             st.table(df_xgb_params)
+            
+            
         else:
             st.write("Aucun paramètre trouvé pour XGBoost.")
 
 
 
     # Sélection de modèle pour affichage
-    choix_model = st.selectbox("Choisissez un modèle pour la visualisation :", list(metrics.keys()))
+    modele_visu = [k for k in metrics if k != "VotingRegressor"]
+    choix_model = st.selectbox(
+        "Choisissez un modèle pour la visualisation :",
+        modele_visu,
+        index=modele_visu.index(nom_meilleur_modele)
+    )
+
+
     
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(df_model["datetime"], y, label="Réel", color="blue")
@@ -360,6 +428,9 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
     ax.legend()
     ax.grid(True)
     st.pyplot(fig)
+    
+    
+    
 else:
     st.warning("Aucune donnée filtrée disponible pour l'entraînement des modèles.")
 

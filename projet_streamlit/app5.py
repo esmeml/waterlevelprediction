@@ -32,8 +32,8 @@ import warnings
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d’eau")
 
-#DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
-DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
+DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
+#DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
 
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]
@@ -279,7 +279,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             "MSE": mean_squared_error(y_true, y_pred),
             "RMSE": np.sqrt(mean_squared_error(y_true, y_pred)),
             "MAE": mean_absolute_error(y_true, y_pred),
-            "MAPE": mean_absolute_percentage_error(y_true, y_pred)
+            
         }
 
     metrics["LinearRegression"] = compute_metrics(y, y_pred_lr, "LR")
@@ -306,7 +306,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             "MSE": mean_squared_error(y_test, y_pred_test),
             "RMSE": np.sqrt(mean_squared_error(y_test, y_pred_test)),
             "MAE": mean_absolute_error(y_test, y_pred_test),
-            "MAPE": mean_absolute_percentage_error(y_test, y_pred_test)
+            
         }
     
     # Recalcul des métriques avec la séparation train/test
@@ -331,7 +331,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             "MSE": mean_squared_error(y[1:], y_pred_arima),
             "RMSE": np.sqrt(mean_squared_error(y[1:], y_pred_arima)),
             "MAE": mean_absolute_error(y[1:], y_pred_arima),
-            "MAPE": mean_absolute_percentage_error(y[1:], y_pred_arima),
+            
         }
     
     if not np.isnan(y_pred_sarima).all():
@@ -340,7 +340,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
             "MSE": mean_squared_error(y[13:], y_pred_sarima),
             "RMSE": np.sqrt(mean_squared_error(y[13:], y_pred_sarima)),
             "MAE": mean_absolute_error(y[13:], y_pred_sarima),
-            "MAPE": mean_absolute_percentage_error(y[13:], y_pred_sarima),
+            
         }
     
     # Déterminer le meilleur modèle
@@ -363,7 +363,7 @@ if choix != "-- Aucune sélection --" and 'df_filtré' in locals() and not df_fi
         # Tableau des métriques
         st.subheader("Tableau des Métriques")
         df_metrics = pd.DataFrame(metrics).T
-        df_metrics = df_metrics[["R² Train", "R² Test", "MSE", "RMSE", "MAE", "MAPE"]]
+        df_metrics = df_metrics[["R² Train", "R² Test", "MSE", "RMSE", "MAE"]]
         df_metrics = df_metrics.round(3)
         st.dataframe(df_metrics, use_container_width=True)
     

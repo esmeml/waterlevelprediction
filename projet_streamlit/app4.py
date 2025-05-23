@@ -1,12 +1,3 @@
-#streamlit
-#pandas
-#scikit-learn
-#matplotlib
-#seaborn
-#numpy
-#xgboost
-#pmdarima
-#statsmidels 
 import streamlit as st
 import os
 import json
@@ -35,8 +26,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d’eau")
 
-#DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
-DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
+DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
 
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]
@@ -189,8 +179,7 @@ if choix != "-- Aucune sélection --":
 
 
 # Charger les résultats de modèle
-#MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
-MODELES_PATH = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
+MODELES_PATH = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\resultats_modeles.json"
 if os.path.exists(MODELES_PATH):
     with open(MODELES_PATH, "r", encoding="utf-8") as f:
         resultats_modeles = json.load(f)
@@ -263,7 +252,7 @@ if os.path.exists(MODELES_PATH):
 
             st.markdown("### Comparaison des performances des modèles")
             for name, metriques in scores.items():
-                badge = "✨ **Meilleur**" if name == best_model_name_by_r2 else ""
+                badge = "**Meilleur**" if name == best_model_name_by_r2 else ""
                 st.markdown(f"**{name}** {badge}")
                 st.markdown(f"- R² : {metriques['R2']:.3f}")
                 st.markdown(f"- RMSE : {metriques['RMSE']:.3f}")

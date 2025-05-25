@@ -28,12 +28,11 @@ from statsmodels.tools.sm_exceptions import ConvergenceWarning
 import warnings
 
 
-
 st.set_page_config(page_title="Observations Hydrologiques", layout="wide")
 st.title("Information sur les cours d’eau")
 
-DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
-#DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
+#DOSSIER_JSON = r"C:\Users\niels\Git\waterlevelprediction\projet_streamlit\data"
+DOSSIER_JSON = r"C:\Users\noara\Git\waterlevelprediction\projet_streamlit\data"
 
 # Lister les fichiers JSON
 fichiers = [f for f in os.listdir(DOSSIER_JSON) if f.endswith(".json")]
